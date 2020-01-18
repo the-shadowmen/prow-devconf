@@ -98,7 +98,7 @@ spec:
 
 This will create a load balancer on GCE just wait a bit to the external IP on the ingress
 
-![img](../../doc/img/lb-ingress.png)
+![img](../../../doc/img/lb-ingress.png)
 
 ```
 NAME                             HOSTS                ADDRESS          PORTS     AGE
@@ -107,6 +107,6 @@ tls-prow-kerbeross-dev-ingress   prow.kerbeross.dev   xx.xxx.xxx.xx    80, 443  
 ```
 
 Aaaaaaand that's it:
-![img](../../doc/img/prow-cert-works.png)
+![img](../../../doc/img/prow-cert-works.png)
 
 *NOTE*: You could erase the other ingress to save some money :)
