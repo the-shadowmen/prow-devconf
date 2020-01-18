@@ -2,16 +2,12 @@ config_updater:
   maps:
     prow-config/config.yaml:
       name: config
-      namespace: default
     prow-config/jobs/**/*.yaml:
       name: job-config
-      namespace: default
     prow-config/plugins.yaml:
       name: plugins
-      namespace: default
     prow-config/labels.yaml:
       name: label-config
-      namespace: default
 
 plugins:
   the-shadowmen:
@@ -62,7 +58,6 @@ external_plugins:
 triggers:
 - repos:
   - the-shadowmen/kubevirtci
-  trusted_org: the-shadowmen
 - repos:
   - the-shadowmen/kubevirt-tutorial
 - repos:

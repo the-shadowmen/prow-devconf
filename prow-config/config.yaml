@@ -22,7 +22,9 @@ tide:
         - do-not-merge/work-in-progress
         - do-not-merge/invalid-owners-file
         - needs-ok-to-test
-  pr_status_base_url:
+        - do-not-merge/release-note-label-needed
+        - needs-rebase
+  pr_status_base_urls:
     '*': https://prow.kerbeross.dev/pr
   context_options:
     from-branch-protection: false
@@ -39,7 +41,6 @@ plank:
   job_url_prefix_config: 
     '*': "https://prow.kerbeross.dev/view/gcs/"
   pod_pending_timeout: 60m
-  allow_cancellations: true
   default_decoration_configs:
     '*':
       timeout: 2h
@@ -55,9 +56,8 @@ plank:
       gcs_credentials_secret: "gcs"
 
 deck:
-    spyglass:
+  spyglass:
     size_limit: 500000000 # 500MB
-    gcs_browser_prefix: "https://prow.kerbeross.dev/view/gcs/"
     viewers:
       "started.json|finished.json":
       - "metadata"
