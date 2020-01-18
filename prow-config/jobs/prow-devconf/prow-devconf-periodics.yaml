@@ -1,3 +1,4 @@
+periodics:
 - name: periodic-prow-devconf-close
   interval: 1h
   decorate: true
