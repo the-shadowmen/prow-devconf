@@ -28,7 +28,6 @@ plugins:
 
   the-shadowmen/prow-devconf:
   - trigger
-  - release-note
   - owners-label
   - lgtm
   - approve
@@ -36,14 +35,12 @@ plugins:
 
   the-shadowmen/kubevirtci:
   - trigger
-  - release-note
   - owners-label
   - lgtm
   - approve
 
   the-shadowmen/kubevirt-tutorial:
   - trigger
-  - release-note
   - owners-label
   - lgtm
   - approve
