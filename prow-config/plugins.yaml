@@ -1,0 +1,86 @@
+config_updater:
+  maps:
+    prow-config/config.yaml:
+      name: config
+      namespace: default
+    prow-config/jobs/**/*.yaml:
+      name: job-config
+      namespace: default
+    prow-config/plugins.yaml:
+      name: plugins
+      namespace: default
+    prow-config/labels.yaml:
+      name: label-config
+      namespace: default
+
+plugins:
+  the-shadowmen:
+  - size
+  - label
+  - hold
+  - assign
+  - blunderbuss
+  - lifecycle
+  - verify-owners
+  - skip
+  - override
+  - wip
+  - pony
+  - dog
+  - cat
+  - dco
+
+  the-shadowmen/prow-devconf:
+  - trigger
+  - release-note
+  - owners-label
+  - lgtm
+  - approve
+  - config-updater
+
+  the-shadowmen/kubevirtci:
+  - trigger
+  - release-note
+  - owners-label
+  - lgtm
+  - approve
+
+  the-shadowmen/kubevirt-tutorial:
+  - trigger
+  - release-note
+  - owners-label
+  - lgtm
+  - approve
+
+external_plugins:
+  the-shadowmen:
+  - name: needs-rebase
+    events:
+      - pull_request
+  - name: cherrypicker
+
+triggers:
+- repos:
+  - the-shadowmen/kubevirtci
+  trusted_org: the-shadowmen
+- repos:
+  - the-shadowmen/kubevirt-tutorial
+- repos:
+  - the-shadowmen/prow-devconf
+
+
+approve:
+- repos:
+  - the-shadowmen/kubevirt-tutorial
+  - the-shadowmen/kubevirtci
+  - the-shadowmen/prow-devconf
+  require_self_approval: true
+  lgtm_acts_as_approve: false
+  ignore_review_state: true
+
+lgtm:
+- repos:
+  - the-shadowmen/kubevirt-tutorial
+  - the-shadowmen/kubevirtci
+  - the-shadowmen/prow-devconf
+  review_acts_as_lgtm: true
