@@ -1,0 +1,30 @@
+- name: periodic-prow-devconf-close
+  interval: 1h
+  decorate: true
+  spec:
+    containers:
+    - image: gcr.io/k8s-testimages/commenter:v20170808-abf66782
+      command:
+      - /commenter
+      args:
+      - |-
+        --query=org:the-shadowmen
+        -label:lifecycle/frozen
+        label:lifecycle/rotten
+      - --updated=720h
+      - --token=/etc/github/oauth
+      - |-
+        --comment=Rotten issues close after 30d of inactivity.
+        Reopen the issue with `/reopen`.
+        Mark the issue as fresh with `/remove-lifecycle rotten`.
+        /close
+      - --template
+      - --ceiling=10
+      - --confirm
+      volumeMounts:
+      - name: token
+        mountPath: /etc/github
+    volumes:
+    - name: token
+      secret:
+        secretName: oauth-token

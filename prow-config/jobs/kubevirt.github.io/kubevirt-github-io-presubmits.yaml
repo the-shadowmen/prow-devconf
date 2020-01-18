@@ -1,0 +1,17 @@
+
+presubmits:
+  the-shadowmen/kubevirt.github.io:
+    - name: kubevirt-io-presubmit-link-checker
+      decorate: true
+      always_run: true
+      skip_report: false
+      spec:
+        nodeSelector:
+          region: primary
+        containers:
+          - image: docker.io/library/ruby
+            env:
+              - name: NOKOGIRI_USE_SYSTEM_LIBRARIES
+                value: "true"
+            command: ["/bin/sh", "-c"]
+            args: ["/usr/local/bin/bundle install && bundle exec rake"]
