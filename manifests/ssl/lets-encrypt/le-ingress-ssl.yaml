@@ -1,0 +1,25 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: tls-prow-kerbeross-dev-ingress
+spec:
+  tls:
+  - hosts:
+    - prow.kerbeross.dev
+    secretName: cert-prow-kerbeross-dev
+  backend:
+    serviceName: deck
+    servicePort: 80
+  rules:
+    - host: prow.kerbeross.dev
+      http:
+        paths:
+        - backend:
+            serviceName: deck
+            servicePort: 80
+          path: /
+        - backend:
+            serviceName: hook
+            servicePort: 8888
+          path: /hook

@@ -1,0 +1,36 @@
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: Issuer
+metadata:
+  name: kerbeross-selfsigned
+  namespace: default
+spec:
+  selfSigned: {}
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: prow-kerbeross-selfsigned-dev
+  namespace: default
+spec:
+  secretName: prow-kerbeross-selfsigned-dev-tls
+  duration: 2160h # 90d
+  renewBefore: 360h # 15d
+  organization:
+  - jetstack
+  commonName: prow.kerbeross.dev
+  isCA: false
+  keySize: 2048
+  keyAlgorithm: rsa
+  keyEncoding: pkcs1
+  usages:
+    - server auth
+    - client auth
+  dnsNames:
+    - prow.kerbeross.dev
+  ipAddresses:
+    - 34.107.218.19
+  issuerRef:
+    name: kerbeross-selfsigned
+  kind: Issuer
+  group: cert-manager.io

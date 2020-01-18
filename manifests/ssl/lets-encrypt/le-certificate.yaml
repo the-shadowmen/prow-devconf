@@ -1,0 +1,17 @@
+apiVersion: cert-manager.io/v1alpha2 
+kind: Certificate
+metadata:
+  name: prow-kerbeross-dev
+spec:
+  secretName: cert-prow-kerbeross-dev
+  dnsNames:
+  - prow.kerbeross.dev
+  acme:
+    config:
+    - http01:
+        ingressClass: gce
+      domains:
+      - prow.kerbeross.dev
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
