@@ -24,6 +24,7 @@ plugins:
   - pony
   - dog
   - cat
+  - dco
 
   the-shadowmen/prow-devconf:
   - trigger
