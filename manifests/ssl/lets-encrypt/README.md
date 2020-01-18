@@ -1,5 +1,7 @@
 # Deploy SSL certificate manifests
 
+**DISCLAIMER**: Before apply the manifests ensure you have reviewed it in order to match the external IP of your ingresses and the desired name for your resources
+
 - We need at first to create the Let's Encrypt issuer into our cert-manager
 ```
 kubectl create -f le-clusterissuer.yaml
@@ -16,7 +18,7 @@ letsencrypt-prod   True    11h
 
 Ensure the status of clusterissuer is `Ready == True`, just to validate that cert-manager has the enough resources to start dealing with ACME-DNS validation.
 
-*NOTE*: The ClusterIssuer vs Issuer difference it's just the scope of the issuer actuation, Cluster one will act over the while cluster and Issuer will just cover the namespace.
+**NOTE**: The ClusterIssuer vs Issuer difference it's just the scope of the issuer actuation, Cluster one will act over the while cluster and Issuer will just cover the namespace.
 
 After that, we need to create the certificate:
 ```
@@ -110,4 +112,4 @@ Aaaaaaand that's it:
 
 ![img](../../../doc/img/prow-cert-works.png)
 
-*NOTE*: You could erase the other ingress to save some money :)
+**NOTE**: You could erase the other ingress to save some money :)
