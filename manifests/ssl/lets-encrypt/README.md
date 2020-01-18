@@ -107,6 +107,7 @@ tls-prow-kerbeross-dev-ingress   prow.kerbeross.dev   xx.xxx.xxx.xx    80, 443  
 ```
 
 Aaaaaaand that's it:
+
 ![img](../../../doc/img/prow-cert-works.png)
 
 *NOTE*: You could erase the other ingress to save some money :)
