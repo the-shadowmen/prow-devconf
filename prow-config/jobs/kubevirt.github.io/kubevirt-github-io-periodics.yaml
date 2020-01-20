@@ -8,8 +8,6 @@ periodics:
         base_ref: master
         path_alias: kubevirt.github.io
     spec:
-      nodeSelector:
-        region: primary
       containers:
         - image: docker.io/library/ruby
           env:
