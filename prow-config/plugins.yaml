@@ -24,31 +24,28 @@ plugins:
   - pony
   - dog
   - cat
+  - approve
 
   the-shadowmen/prow-devconf:
   - trigger
   - owners-label
   - lgtm
-  - approve
   - config-updater
 
   the-shadowmen/kubevirtci:
   - trigger
   - owners-label
   - lgtm
-  - approve
 
   the-shadowmen/kubevirt-tutorial:
   - trigger
   - owners-label
   - lgtm
-  - approve
 
   the-shadowmen/kubevirt.github.io:
   - trigger
   - owners-label
   - lgtm
-  - approve
 
 external_plugins:
   the-shadowmen:
@@ -67,16 +64,14 @@ triggers:
 - repos:
   - the-shadowmen/kubevirt.github.io
 
-
 approve:
 - repos:
   - the-shadowmen/kubevirt-tutorial
   - the-shadowmen/kubevirtci
   - the-shadowmen/prow-devconf
   - the-shadowmen/kubevirt.github.io
-  require_self_approval: true
+  implicit_self_approve: true
   lgtm_acts_as_approve: false
-  ignore_review_state: true
 
 lgtm:
 - repos:
