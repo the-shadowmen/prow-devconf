@@ -52,7 +52,7 @@ plank:
       gcs_configuration:
         bucket: "kerbeross-prow-storage"
         path_strategy: "explicit"
-      gcs_credentials_secret: "gcs"
+      gcs_credentials_secret: "gcs-credentials"
 
 deck:
   spyglass:
