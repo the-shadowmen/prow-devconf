@@ -8,11 +8,13 @@ tide:
     the-shadowmen/prow-devconf: squash
     the-shadowmen/kubevirt-tutorial: squash
     the-shadowmen/kubevirtci: squash
+    the-shadowmen/kubevirt.github.io: squash
   queries:
     - repos:
         - the-shadowmen/prow-devconf
         - the-shadowmen/kubevirt-tutorial
         - the-shadowmen/kubevirtci
+        - the-shadowmen/kubevirt.github.io
       labels:
         - lgtm
         - approved

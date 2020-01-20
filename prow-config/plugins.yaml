@@ -48,6 +48,12 @@ plugins:
   - lgtm
   - approve
 
+  the-shadowmen/kubevirt.github.io:
+  - trigger
+  - owners-label
+  - lgtm
+  - approve
+
 external_plugins:
   the-shadowmen:
   - name: needs-rebase
@@ -62,6 +68,8 @@ triggers:
   - the-shadowmen/kubevirt-tutorial
 - repos:
   - the-shadowmen/prow-devconf
+- repos:
+  - the-shadowmen/kubevirt.github.io
 
 
 approve:
@@ -69,6 +77,7 @@ approve:
   - the-shadowmen/kubevirt-tutorial
   - the-shadowmen/kubevirtci
   - the-shadowmen/prow-devconf
+  - the-shadowmen/kubevirt.github.io
   require_self_approval: true
   lgtm_acts_as_approve: false
   ignore_review_state: true
@@ -78,4 +87,5 @@ lgtm:
   - the-shadowmen/kubevirt-tutorial
   - the-shadowmen/kubevirtci
   - the-shadowmen/prow-devconf
+  - the-shadowmen/kubevirt.github.io
   review_acts_as_lgtm: true
