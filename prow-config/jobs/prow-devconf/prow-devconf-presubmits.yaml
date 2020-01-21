@@ -1,20 +1,20 @@
 presubmits:
   the-shadowmen/prow-devconf:
-  - name: check-prow-config
-    always_run: true
-    decorate: true
-    spec:
-      containers:
-      - image: gcr.io/k8s-prow/checkconfig:v20190703-132f32f32
-        args:
-        - "/checkconfig"
-        - "--config-path"
-        - "prow-config/config.yaml"
-        - "--job-config-path"
-        - "prow-config/jobs"
-        - "--plugin-config"
-        - "prow-config/plugins.yaml"
-        - "--strict"
-        resources:
-          requests:
-            memory: "500Mi"
+    - name: check-prow-config
+      always_run: true
+      decorate: true
+      spec:
+        containers:
+          - image: gcr.io/k8s-prow/checkconfig:v20190703-132f32f32
+            args:
+            - "/checkconfig" 
+            - "--config-path"
+            - "prow-config/config.yaml"
+            - "--job-config-path"
+            - "prow-config/jobs"
+            - "--plugin-config"
+            - "prow-config/plugins.yaml"
+            - "--strict"
+            resources:
+              requests:
+                memory: "500Mi"
