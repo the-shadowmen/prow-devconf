@@ -23,7 +23,6 @@ tide:
         - do-not-merge/hold
         - do-not-merge/work-in-progress
         - do-not-merge/invalid-owners-file
-        - needs-rebase
   pr_status_base_urls:
     '*': https://prow.kerbeross.dev/pr
   context_options:
@@ -53,7 +52,7 @@ plank:
       gcs_configuration:
         bucket: "kerbeross-prow-storage"
         path_strategy: "explicit"
-      gcs_credentials_secret: "gcs"
+      gcs_credentials_secret: "gcs-credentials"
 
 deck:
   spyglass:

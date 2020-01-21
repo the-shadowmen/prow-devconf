@@ -47,13 +47,6 @@ plugins:
   - owners-label
   - lgtm
 
-external_plugins:
-  the-shadowmen:
-  - name: needs-rebase
-    events:
-      - pull_request
-  - name: cherrypicker
-
 triggers:
 - repos:
   - the-shadowmen/kubevirtci
